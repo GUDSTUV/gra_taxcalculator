@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/calc.css">
+    <title>Document</title>
+</head>
+<body>
+     <div class="container">
+            <div class="header">
+                <img src="image/gra.png" alt="GRA Logo">
+                <h1>Tax Calculator</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Tax</a></li>
+                        <li><a href="calc.html">Calculator</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div  class="main">
+                
+                <div class="inputs">
+                    <div class="displays">
+                         <input type="text" class="input-display" readonly>                                                     
+                    </div>
+
+                    <div class="input-buttons">
+                        <input type="button" onclick="cleared()" class="clear symbol" name="number" id="input" value="AC">
+                        <input type="button" onclick="parenthesis()" class="paren symbol" name="number" id="input" value="( )">
+                        <input type="button" onclick="percent()" class="percent symbol" name="number" id="input" value="%">
+                        <input type="button" onclick="calc('/')" class="division symbol" name="number" id="input" value="/">
+                        <input type="button" onclick="calc('7')" class="seven" name="number" id="input" value="7">
+                        <input type="button" onclick="calc('8')" class="eight" name="number" id="input" value="8">
+                        <input type="button" onclick="calc('9')" class="nine" name="number" id="input" value="9">
+                        <input type="button" onclick="calc('*')" class="multi symbol" name="number" id="input" value="×">
+                        <input type="button" onclick="calc('4')" class="four" name="number" id="input" value="4">
+                        <input type="button" onclick="calc('5')" class="five" name="number" id="input" value="5">
+                        <input type="button" onclick="calc('6')" class="six" name="number" id="input" value="6">
+                        <input type="button" onclick="calc('-')" class="minus symbol" name="number" id="input" value="–">
+                        <input type="button" onclick="calc('1')" class="one" name="number" id="input" value="1">
+                        <input type="button" onclick="calc('2')" class="two" name="number" id="input" value="2">
+                        <input type="button" onclick="calc('3')" class="three" name="number" id="input" value="3">
+                        <input type="button" onclick="calc('+')" class="plus symbol" name="number" id="input" value="+">
+                        <input type="button" onclick="calc('0')" class="zero" name="number" id="input" value="0">
+                        <input type="button" onclick="calc('.')" class="dash symbol" name="number" id="input" value=".">
+                        <input type="button" onclick="del()" class="delete symbol" name="number" id="input" value="C">
+                        <input type="button" onclick="compute()" class="calculate symbol" name="number" id="input" value="=">
+                    </div>
+                </div>
+                
+            </div>
+
+        <div class="footer">
+            Copyright @ <span class="year"></span> || TechStuv
+        </div>
+    </div>
+
+    <script src="script/calc.js"></script>
+    
+</body>
+</html>

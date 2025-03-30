@@ -1,0 +1,268 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: rgb(0, 163, 215);
+    --secondary-color: rgb(255, 221, 0);
+    --text-color: white;
+    --dark-color: black;
+}
+
+
+.container{
+    display: grid;
+}
+.header{
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-shadow: 15px 5px 5px  rgba(0, 0, 0, 0.1);
+
+
+}
+
+.header h1{
+    text-transform: uppercase;
+    color: var(--text-color);
+}
+img{
+    width: 100px;
+    
+}
+
+nav ul{
+    display: flex;
+    gap: 2rem;
+    font-weight: bolder;
+    font-size: larger;
+    list-style: none;
+    align-self: flex-end;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+
+}
+
+
+nav ul li a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+nav ul li a:hover{
+    color: whitesmoke;
+}
+/* Main Content */
+.main{
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    padding: 2.5rem 2rem 2rem 2rem ;
+    background-image: linear-gradient(rgba(0, 163, 215, 0.5), rgba(255, 221, 0, 0.5)), url("../image/photo.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+
+
+}
+
+input{
+    border-radius: 10px;
+    border: none;
+}
+
+.vat{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+     background-color: var(--primary-color);
+    padding: 1rem;
+    height: fit-content;
+
+}
+
+.inputs{
+    display: none;
+}
+
+.tax{
+    display: flex;
+    flex-direction: column;
+     margin: 1rem;
+
+}
+
+.modules{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+     color: var(--text-color);
+    border-bottom: 1px solid white;
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+input[type="radio"]{
+    width: 20px;
+    height: 20px;
+}
+
+
+.display{
+    height: fit-content;
+    flex: 1;
+    width: 100%;
+    padding: 1rem;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.display .output-flat, .input-flat{
+    display: none;
+}
+
+
+td{
+    border: 1px solid black;
+}
+
+
+table .table1{
+    background-color: rgb(248, 248, 248);
+
+}
+table tr:nth-child(even){
+    background-color: rgb(236, 236, 236);
+}
+
+.inputs tr:nth-child(odd){
+    background-color: rgb(236, 236, 236);
+}
+
+.output-flat tr:nth-child(odd){
+    background-color: rgb(248, 248, 236);
+}
+
+table .table2{
+    width: 25%;
+
+}
+
+.result{
+    padding: 0.5rem;
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.flat-result{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+
+
+ .goods-type, .calculate{
+    padding: 1rem;
+    width:100%;
+}
+
+.calculate input{
+    background-color: rgb(255, 221, 0);
+    color: white;
+    font-size: larger;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+    
+
+
+.calculate input:hover{
+    background-color: rgba(255, 221, 0.8);
+     box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.8);
+     cursor: pointer;
+}
+
+label{
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.number{
+    padding: 1rem;
+    width:100%;
+    font-size: 1.5rem;
+ 
+}
+
+select{
+    width: 5rem;
+    border-radius: 8px;
+    border: none ;
+    font-size: medium;
+}
+
+tr, td{
+    height: 3rem;
+    padding: 1rem;
+}
+
+.display .outputs, .output-flat{
+    margin-bottom: 1rem;
+}
+
+
+.footer {
+    background-color: black;
+    color: rgb(255, 221, 0);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Ensures it stays at the bottom */
+
+}
+
+h2{
+    text-transform: uppercase;
+    text-align: center;
+    background-color: rgb(255, 221, 0);
+    color:white;
+    padding: 1rem;
+    margin: 1rem 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .main {
+        flex-wrap: wrap;
+        align-items: center;
+  
+    }
+    .vat {
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    h1{
+        font-size: medium;
+
+    }
+}

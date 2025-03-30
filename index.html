@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <title>Tax Calculator</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="image/gra.png" alt="GRA Logo">
+            <h1>Tax Calculator</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Tax</a></li>
+                    <li><a href="calc.html">Calculator</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="main">
+            <!-- CALCULATIONS -->
+            <div class="vat">
+                <div class="tax">
+                    <input type="text" class="number" name="number" id="input" placeholder="Enter a goods turnover">
+                    
+                    <div class="modules">
+                        <label><input type="radio" name="Standard" id="standard"> Standard Rate</label>
+                        <label><input type="radio" name="Standard" id="flat"> Flat Rate</label>
+                    </div>
+                    
+                    <label>Input type</label>
+                    <select class="goods-type" id="selected" name="goods-type">
+                        <option value="output">Outputs (supplies of goods and/or services)</option>
+                        <option class="input-value" value="input">Inputs (purchases and expenses)</option>
+                    </select>
+                </div>
+                
+                <div class="calculate">
+                    <input type="button" class="calculate" id="calculate" value="Calculate" name="Calculate">
+                </div>
+            </div>
+            
+            <!-- RESULTS -->
+            <div class="display">
+                <!-- STANDARD RESULT FOR chargeable outputs -->
+                <div class="outputs">
+                    <h2>Standard VAT</h2>
+                    <h3>Taxable Outputs</h3>
+                    <table>
+                        <tr>
+                            <td class="table1">TAXABLE SUPPLIES</td>
+                            <td class="result taxable table1"></td>
+                        </tr>
+                        <tr>
+                            <td>NHIL (2.5%):</td>
+                            <td class="result taxable"></td>
+                        </tr>
+                        <tr>
+                            <td class="table1">GETFUND LEVY (2.5%):</td>
+                            <td class="result taxable table1"></td>
+                        </tr>
+                        <tr>
+                            <td>COVID-19 LEVY (1%):</td>
+                            <td class="result taxable"></td>
+                        </tr>
+                        <tr> 
+                            <td class="table1">TAXABLE VALUE INCLUSIVE OF LEVIES:</td>
+                            <td class="result taxable table1"></td>
+                        </tr>
+                        <tr>
+                            <td>VAT LEVY (15%):</td>
+                            <td class="result taxable"></td>
+                        </tr>
+                        <tr> 
+                            <td class="table1">TOTAL NHIL/GETFUND LEVY & COVID-19 LEVY PAYABLE:</td>
+                            <td class="result table1 taxable"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- CHARGEABLE INPUTS -->
+                <div class="inputs">
+                    <h2>Standard VAT</h2>
+                    <h3>Taxable Input</h3>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td class="table1">Value of Taxable Input (excluding VAT)</td>
+                            <td class="table1 taxable2">VAT</td>
+                        </tr>
+                        <tr>
+                            <td class="table1">LOCAL INPUTS (FLAT RATE - 3%)</td>
+                            <td class="flat-result table2 taxable2"></td>
+                            <td class="flat-result taxable2 table2"></td>
+                        </tr>
+                        <tr>
+                            <td>LOCAL INPUT (STANDARD - 15%):</td>
+                            <td class="flat-result"></td>
+                            <td class="flat-result taxable2"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- VAT FLAT RESULTS -->
+                <div class="output-flat">
+                    <h2>VAT Flat</h2>
+                    <h3>Taxable Outputs</h3>
+                    <table>
+                        <tr>
+                            <td class="table1">VAT & NHIL (2%)</td>
+                            <td class="flat-rate result table1">0</td>
+                        </tr>
+                        <tr>
+                            <td>COVID-19 (1%)</td>
+                            <td class="flat-rate result"></td>
+                        </tr>
+                        <tr>
+                            <td>TOTAL VAT & COVID-19 LEVY PAYABLE (3%)</td>
+                            <td class="flat-rate result"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- CHARGEABLE INPUTS VAT FLAT -->
+                <div class="input-flat">
+                    <h2>VAT Flat</h2>
+                    <h3>Taxable Input</h3>
+                    <table>
+                        <tr>
+                            <td class="table1">LOCAL INPUTS</td>
+                            <td class="result table1"></td>
+                        </tr>
+                        <tr>
+                            <td>IMPORTS</td>
+                            <td class="result"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+              <!-- FOOTER -->
+        <div class="footer">
+            Copyright @ <span class="year"></span> || TechStuv
+        </div>
+      
+    </div>
+    <script src="script/script.js"></script>
+</body>
+</html>
