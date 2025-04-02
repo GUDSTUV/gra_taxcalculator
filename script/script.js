@@ -16,7 +16,6 @@ const vat = 159 / 1219;
 // Flat Rates
 const flatRate = 0.03;
 const vatRate = 0.15;
-const vat_NHIL = 0.02;   
 const covidRate = 0.01;
 
 // Standard Inputs
@@ -159,7 +158,7 @@ function standardInput(value) {
  */
 function calculateFlatOutput(value) {
     const flatResult = document.getElementsByClassName('flat-rate');
-    let vatNHIL = truncateToTwoDecimals(value * vat_NHIL);
+    let vatNHIL = truncateToTwoDecimals(value * flatRate);
     let covidResult = truncateToTwoDecimals(value * covidRate);
     let totalVatFlat = truncateToTwoDecimals(vatNHIL + covidResult)
 
