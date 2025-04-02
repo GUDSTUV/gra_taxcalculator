@@ -118,3 +118,8 @@ document.addEventListener('keydown', (event) => {
 });
 
 
+function updateYear() {
+    let date = new Date();
+    document.querySelector(".year").innerHTML = date.getFullYear();
+}
+updateYear();
