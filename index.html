@@ -35,8 +35,14 @@
                         <option value="output">Outputs (supplies of goods and/or services)</option>
                         <option class="input-value" value="input">Inputs (purchases and expenses)</option>
                     </select>
+
+                    <div class="local-inputs">
+                        <label><input type="radio" name="Standard-local" id="flat-input"> Local Input(Flat Rate - 3%)</label>
+                        <label><input type="radio" name="Standard-local" id="standard-input"> Local Input (Standard - 15%)</label>
+                    </div>
                 </div>
                 
+
                 <div class="calculate">
                     <input type="button" class="calculate" id="calculate" value="Calculate" name="Calculate">
                 </div>
@@ -81,7 +87,8 @@
                 </div>
 
                 <!-- CHARGEABLE INPUTS -->
-                <div class="inputs">
+            <div class="local-standard-inputs">
+                <div class="inputs-flat">
                     <h2>Standard VAT</h2>
                     <h3>Taxable Input</h3>
                     <table>
@@ -95,6 +102,18 @@
                             <td class="flat-result table2 taxable2"></td>
                             <td class="flat-result taxable2 table2"></td>
                         </tr>
+                    </table>
+                </div>
+
+                <div class="inputs-standard">
+                    <h2>Standard VAT</h2>
+                    <h3>Taxable Input</h3>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td class="table1">Value of Taxable Input (excluding VAT)</td>
+                            <td class="table1 taxable2">VAT</td>
+                        </tr>
                         <tr>
                             <td>LOCAL INPUT (STANDARD - 15%):</td>
                             <td class="flat-result"></td>
@@ -102,6 +121,9 @@
                         </tr>
                     </table>
                 </div>
+            </div>
+
+
 
                 <!-- VAT FLAT RESULTS -->
                 <div class="output-flat">
@@ -124,7 +146,7 @@
                 </div>
 
                 <!-- CHARGEABLE INPUTS VAT FLAT -->
-                <div class="input-flat">
+                <!-- <div class="input-flat">
                     <h2>VAT Flat</h2>
                     <h3>Taxable Input</h3>
                     <table>
@@ -137,15 +159,16 @@
                             <td class="result"></td>
                         </tr>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
 
         
               <!-- FOOTER -->
-        <div class="footer">
-            Copyright @ <span class="year"></span> || TechStuv
-        </div>
+        <footer class="footer">
+            &copy; <span class="year"></span> | TechStuv | All Rights Reserved
+        </footer>
+    </div>
       
     </div>
     <script src="script/script.js"></script>

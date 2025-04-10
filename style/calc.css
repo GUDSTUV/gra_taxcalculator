@@ -1,143 +1,186 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.container{
-    display: grid;
-    
+:root {
+    --primary-color: #00a3d7;
+    --secondary-color: #ffdd00;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --bg-light: #f9f9f9;
+    --bg-gray: #e6e6e6;
+    --border-radius: 10px;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --font-size-base: 1rem; 
 }
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6; 
+    font-size: var(--font-size-base); 
+
+}
+
+.container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
 .header{
-    background-color: rgb(0, 163, 215);
-    padding: 0.5rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    align-items: center;
     display: flex;
+    padding: 0.5rem;
     gap: 1rem;
     justify-content: space-between;
-    align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: fixed;
-    right: 0;
-    left: 0;
- }
+    box-shadow: var(--shadow);
+}
 
-.header h1{
+.header h1 {
     text-transform: uppercase;
-    color: white;
-}
-img{
-    width: 100px;
-    
+    color: var(--text-light);
+    font-size: 2rem; 
+    margin: 0;
 }
 
-nav ul{
+img {
+    width: 8rem; 
+}
+
+nav ul {
     display: flex;
-    gap: 2rem;
-    font-weight: bolder;
-    font-size: larger;
+    gap: 1.5rem;
     list-style: none;
-    align-self: flex-end;
-    border-radius: 10px;
-    padding: 1rem;
-    background-color: rgb(255, 221, 0)
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
 }
 
-
-nav ul li a{
+nav ul li a {
     text-decoration: none;
-    color: rgb(0, 163, 215);
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover{
-    color: whitesmoke;
+nav ul li a:hover {
+    color: var(--text-light);
 }
-.main{
+
+.back-button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--text-light);
+    margin: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+.back-button a{
+    text-decoration: none;
+
+}
+.main {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 5rem 1rem 1rem 1rem;
-    background-image: linear-gradient(rgba(0, 163, 215, 0.5), rgba(255, 221, 0, 0.5)), url("../image/photo.jpeg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-
+    background-color: rgb(250, 250, 250);
+    padding: 3rem 1rem; 
+    position: relative;
 }
 
-.displays{
+.displays {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 25rem;
-    
+    width: 100%;
 }
 
-.displays .input-display{
+.displays .input-display {
     width: 100%;
-    height: 5rem;
+    height: 7rem;
     font-size: 2rem;
-    border-radius:10px;
+    border-radius: 10px;
     text-align: right;
     color: black;
     box-shadow: none;
-    border: none; 
-    margin-left: rem;
-   
+    border: none;
+    margin-left: 1rem;
 }
 
+.inputs {
+    border: 1px solid rgb(236, 236, 236);
+    width: 50rem;
+    border-radius: 10px;
+    background-color: white;
+    padding: 1rem; 
+    box-shadow: var(--shadow);
 
-
-.inputs{
-    width: 25rem;
-    background-color: rgb(0, 163, 215);
-    box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
-    border-radius:10px 10px;
-
-   
 }
 
-.input-buttons{
+.input-buttons {
     padding-left: 0.1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    place-content: center;
+    grid-area: 1 / 1 / 2 / 5;
 }
-.inputs input{
+
+.inputs input {
     padding: 1rem;
-    width: 5rem;
+    width: 100%; 
     font-size: 2rem;
-    margin: 0.5rem;
     font-weight: bolder;
     border-radius: 10px;
     border: none;
-    box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
 }
 
-.inputs input:hover{
-    box-shadow: 0px 5px 5px rgba(0,0,0, 1);
+.inputs input:hover {
     cursor: pointer;
+    transform: translateY(-2px); 
 }
 
+.inputs input:focus {
+    outline: 2px solid var(--primary-color); 
+}
 
-
-.symbol{
-    background-color: rgb(0, 163, 215);
+.symbol {
+    background-color: rgb(185, 185, 185);
     color: whitesmoke;
 }
 
 .footer {
-    background-color: black;
-    color: rgb(255, 221, 0);
+    background-color: var(--text-dark);
+    color: var(--secondary-color);
     text-align: center;
     padding: 1rem;
-    margin-top: auto; /* Ensures it stays at the bottom */
+    font-size: 0.9rem;
 }
 
-
-
 /* Responsive Design */
-@media screen and (max-width: 768px){
-    .main{
-        padding-top: 8rem ;
+@media screen and (max-width: 768px) {
+    
+    .header h1 {
+        font-size: 1.5rem; 
 
+    .main {
+        padding-top: 2rem; 
     }
 
      nav ul {
@@ -145,8 +188,55 @@ nav ul li a:hover{
         text-align: center;
         gap: 0.5rem;
     }
-
-    h1{
-        font-size: medium;
+     nav ul {
+        flex-direction: column;
+        text-align: center;
     }
+
+     .header h1 {
+        font-size: 1.2rem;
+    }
+    .displays .input-display {
+        font-size: 1.5rem; /
+    }
+
+    .inputs {
+        width: 90%; 
+    }
+
+    .inputs input {
+        width: 100%; /
+    }
+
+    .footer {
+        font-size: 1rem; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Adjust layout for very small screens */
+    .header {
+        padding: 0.8rem;
+    }
+
+    .header h1 {
+        font-size: 1.2rem; /* Adjust font size further */
+    }
+
+    .inputs {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 1.7rem; /* Reduce padding on mobile */
+    }
+
+    .inputs input {
+        width: 100%;
+        font-size: 1.8rem; /* Adjust font size for small screens */
+    }
+
+    .back-button {
+        font-size: 1rem; /* Adjust back button font size */
+        padding: 0.5rem 1rem; /* Adjust padding */
+    }
+}
 }

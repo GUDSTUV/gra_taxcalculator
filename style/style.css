@@ -2,76 +2,83 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 :root {
-    --primary-color: rgb(0, 163, 215);
-    --secondary-color: rgb(255, 221, 0);
-    --text-color: white;
-    --dark-color: black;
+    --primary-color: #00a3d7;
+    --secondary-color: #ffdd00;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --bg-light: #f9f9f9;
+    --bg-gray: #e6e6e6;
+    --border-radius: 10px;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    min-height: 100vh;
 }
 
 
 .container{
     display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
 }
 .header{
     background-color: var(--primary-color);
-    padding: 0.5rem;
+    color: var(--text-light);
+    align-items: center;
     display: flex;
+    padding: 0.5rem;
     gap: 1rem;
     justify-content: space-between;
-    align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-shadow: 15px 5px 5px  rgba(0, 0, 0, 0.1);
-
-
+    box-shadow: var(--shadow);
 }
 
 .header h1{
     text-transform: uppercase;
     color: var(--text-color);
+    font-size: 1.8rem;
 }
 img{
     width: 100px;
     
 }
 
-nav ul{
+nav ul {
     display: flex;
-    gap: 2rem;
-    font-weight: bolder;
-    font-size: larger;
+    gap: 1.5rem;
     list-style: none;
-    align-self: flex-end;
-    border-radius: 10px;
-    padding: 1rem;
     background-color: var(--secondary-color);
-
+    border-radius: var(--border-radius);
+    padding: 0.5rem 1rem;
 }
 
-
-nav ul li a{
+nav ul li a {
     text-decoration: none;
+    font-weight: bold;
     color: var(--primary-color);
+    font-size: 1.2rem;
 }
 
-nav ul li a:hover{
-    color: whitesmoke;
+
+nav ul li a:hover {
+    color: var(--text-light);
 }
+
 /* Main Content */
 .main{
-    display: flex;
-    justify-content: space-around;
-    gap: 1rem;
-    padding: 2.5rem 2rem 2rem 2rem ;
-    background-image: linear-gradient(rgba(0, 163, 215, 0.5), rgba(255, 221, 0, 0.5)), url("../image/photo.jpeg");
-    background-position: center;
-    background-repeat: no-repeat;
+     display: flex;
+    padding: 2rem;
+    background-image: linear-gradient(rgba(0, 163, 215, 0.5), rgba(255, 221, 0, 0.5));
     background-size: cover;
-    min-height: 100vh;
-
-
+    background-position: center;
+    gap: 2rem;
 }
 
 input{
@@ -83,13 +90,18 @@ input{
     display: flex;
     flex-direction: column;
     width: 40%;
-     background-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     padding: 1rem;
     height: fit-content;
 
 }
 
-.inputs{
+
+
+.inputs-standard, .inputs-flat{
     display: none;
 }
 
@@ -104,42 +116,76 @@ input{
     display: flex;
     flex-direction: column;
     margin: 1rem 0;
-     color: var(--text-color);
+    color: var(--text-color);
     border-bottom: 1px solid white;
-    font-size: 1.5rem;
-    font-weight: 500;
-
 }
 
-input[type="radio"]{
+ .modules input[type="radio"]{
     width: 20px;
     height: 20px;
 }
 
+.local-inputs{
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border-bottom: 1px solid white;
+}
+
+
+.local-inputs label{
+    font-size: 1.2rem;
+}
+
+
+.local-inputs input[type="radio"]{
+    width: 15px;
+    height: 15px;
+}
 
 .display{
+    background-color: var(--bg-light);
     height: fit-content;
     flex: 1;
     width: 100%;
     padding: 1rem;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
-
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
+
+.display table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.display table td,
+.display table th {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+}
+
+.display h2 {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    margin: 1rem 0;
+    padding: 0.8rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+
 
 .display .output-flat, .input-flat{
     display: none;
 }
 
 
-td{
-    border: 1px solid black;
-}
-
-
 table .table1{
     background-color: rgb(248, 248, 248);
-
 }
+
 table tr:nth-child(even){
     background-color: rgb(236, 236, 236);
 }
@@ -171,9 +217,6 @@ table .table2{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-
-
-
  .goods-type, .calculate{
     padding: 1rem;
     width:100%;
@@ -183,7 +226,7 @@ table .table2{
     background-color: rgb(255, 221, 0);
     color: white;
     font-size: larger;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
     
 
@@ -211,12 +254,7 @@ select{
     width: 5rem;
     border-radius: 8px;
     border: none ;
-    font-size: medium;
-}
-
-tr, td{
-    height: 3rem;
-    padding: 1rem;
+    font-size: 1.3rem;
 }
 
 .display .outputs, .output-flat{
@@ -225,25 +263,12 @@ tr, td{
 
 
 .footer {
-    background-color: black;
-    color: rgb(255, 221, 0);
+    background-color: var(--text-dark);
+    color: var(--secondary-color);
     text-align: center;
     padding: 1rem;
-    margin-top: auto; /* Ensures it stays at the bottom */
-
+    font-size: 0.9rem;
 }
-
-h2{
-    text-transform: uppercase;
-    text-align: center;
-    background-color: rgb(255, 221, 0);
-    color:white;
-    padding: 1rem;
-    margin: 1rem 0;
-    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
@@ -260,9 +285,12 @@ h2{
         text-align: center;
         gap: 0.5rem;
     }
+     nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
 
-    h1{
-        font-size: medium;
-
+     .header h1 {
+        font-size: 1.2rem;
     }
 }

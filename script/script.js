@@ -4,6 +4,8 @@ const input = document.getElementById('input');
 const taxableResult = document.getElementsByClassName('taxable');
 
 const standard = document.getElementById('standard');
+const standardLocal = document.getElementById('standard-input');
+const flatLocal = document.getElementById('flat-input');
 const flat = document.getElementById('flat');
 const selected = document.getElementById('selected');
 
@@ -71,18 +73,33 @@ calculate.addEventListener('click', () => {
     }
 
     if (standard.checked && selected.value === 'output') {
+         document.querySelector(".output-flat").style.display = "none";
         calculateStandardOutput(value);
-    } else if (standard.checked && selected.value === 'input') {
-        document.querySelector(".inputs").style.display = "block";
+
+    } else if (standard.checked && selected.value === 'input' && standardLocal.checked) {
+        // Show standard input
+        document.querySelector(".inputs-standard").style.display = "block";
+        document.querySelector(".inputs-flat").style.display = "none";
         document.querySelector(".outputs").style.display = "none";
         document.querySelector(".output-flat").style.display = "none";
-        document.querySelector(".input-flat").style.display = "none";
-        standardInput(value);
+
+        standardInput(value); // This covers standard 15%
+
+    } else if (standard.checked && selected.value === 'input' && flatLocal.checked) {
+        // Show flat input
+        document.querySelector(".inputs-flat").style.display = "block";
+        document.querySelector(".inputs-standard").style.display = "none";
+        document.querySelector(".outputs").style.display = "none";
+        document.querySelector(".output-flat").style.display = "none";
+
+        standardInput(value); // This covers flat 3%
+
     } else if (flat.checked && selected.value === "output") {
         document.querySelector(".output-flat").style.display = "block";
-        document.querySelector(".input-flat").style.display = "none";
-        document.querySelector(".inputs").style.display = "none";
         document.querySelector(".outputs").style.display = "none";
+        document.querySelector(".inputs-flat").style.display = "none";
+        document.querySelector(".inputs-standard").style.display = "none";
+
         calculateFlatOutput(value);
     }
 });
@@ -103,7 +120,41 @@ function hideInputValueForFlatRate() {
 // Call the function whenever the checkbox state changes
 flat.addEventListener('change', hideInputValueForFlatRate);
 standard.addEventListener('change', hideInputValueForFlatRate);
+// localDisplays.addEventListener('change', inputsCompute)
+// inputsCompute()
 hideInputValueForFlatRate(); // Initial check on page load
+
+
+// Function to show/hide local-inputs
+function localInputsDisplay() {
+    const localInputs = document.querySelector(".local-inputs");
+    const standardLocal = document.querySelector(".standard-input");
+    const flatLocal = document.querySelector(".flat-input");
+
+    if (standard.checked && selected.value === "input") {
+        localInputs.style.display = "flex";
+    } else {
+        localInputs.style.display = "none";
+    }
+}
+
+// Run it initially
+localInputsDisplay() ;
+
+
+
+// Re-run it when user switches between standard/flat
+standard.addEventListener('change', localInputsDisplay);
+flat.addEventListener('change', localInputsDisplay);
+
+// Re-run it when the dropdown value changes
+selected.addEventListener('change', localInputsDisplay);
+
+// Optional: recheck when calculate is clicked
+calculate.addEventListener('click', () => {
+    localInputsDisplay() ; // Ensure visibility is updated
+    // ... your existing calculation logic
+});
 
 /**
  * Calculate Standard Output
@@ -138,9 +189,12 @@ function calculateStandardOutput(value) {
  * Calculate Standard Input
  */
 function standardInput(value) {
+    //  local flat
     const flatResult = document.getElementsByClassName('flat-result');
     let localInput = truncateToTwoDecimals(value * localInputRate);
     localInput = value - localInput;
+
+    // local standard rate
     let localStandardInput = truncateToTwoDecimals(value * localStandardInputRate);
     localStandardInput = value - localStandardInput;
 
@@ -152,6 +206,8 @@ function standardInput(value) {
     flatResult[2].innerHTML = formatWithCommas(localStandardInput);
     flatResult[3].innerHTML = formatWithCommas(vatRateStandard);
 }
+
+
 
 /**
  * Calculate Flat Output
@@ -175,3 +231,5 @@ function updateYear() {
     document.querySelector(".year").innerHTML = date.getFullYear();
 }
 updateYear();
+
+
