@@ -21,7 +21,7 @@ const vatRate = 0.15;
 const covidRate = 0.01;
 
 // Standard Inputs
-const localInputRate = 3 / 103;
+const localInputRate = 3 / 103; 
 const localStandardInputRate = 159 / 1219;
 
 /**
@@ -231,5 +231,3 @@ function updateYear() {
     document.querySelector(".year").innerHTML = date.getFullYear();
 }
 updateYear();
-
-

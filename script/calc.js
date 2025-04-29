@@ -35,7 +35,9 @@ function calc(value) {
 
     display.value += value;
     formatWithCommas();
+    display.scrollLeft = display.scrollWidth; // <--- auto scroll to end
 }
+
 
 // Compute the result safely
 function compute() {
@@ -123,3 +125,5 @@ function updateYear() {
     document.querySelector(".year").innerHTML = date.getFullYear();
 }
 updateYear();
+
+

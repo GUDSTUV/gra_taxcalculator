@@ -29,7 +29,7 @@ body {
 .container {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
+    min-height: 100vdh;
 }
 
 .header{
@@ -56,24 +56,32 @@ img {
 
 nav ul {
     display: flex;
-    gap: 1.5rem;
+    justify-content: space-between;
+    gap: 5rem;
     list-style: none;
-    background-color: var(--secondary-color);
     border-radius: var(--border-radius);
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 1rem;  
 }
 
 nav ul li a {
     text-decoration: none;
-    font-weight: bold;
-    color: var(--primary-color);
+    color: var(--text-light);
     font-size: 1.2rem;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
 }
 
+
 nav ul li a:hover {
-    color: var(--text-light);
+    border-radius: 10px;
+    width: 500px;
 }
+
+.active{
+    background-color: var(--secondary-color); 
+    color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
 
 .back-button{
     position: absolute;
@@ -86,13 +94,12 @@ nav ul li a:hover {
     font-size: 1.2rem;
     box-shadow: var(--shadow);
     transition: background-color 0.3s ease, transform 0.2s ease;
-
 }
 
 .back-button a{
     text-decoration: none;
-
 }
+
 .main {
     display: flex;
     align-items: center;
@@ -103,12 +110,14 @@ nav ul li a:hover {
     position: relative;
 }
 
-.displays {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.display {
     width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 2rem;
 }
+
 
 .displays .input-display {
     width: 100%;
@@ -175,68 +184,28 @@ nav ul li a:hover {
 
 /* Responsive Design */
 @media screen and (max-width: 768px) {
-    
-    .header h1 {
-        font-size: 1.5rem; 
-
     .main {
-        padding-top: 2rem; 
+        flex-wrap: wrap;
+        align-items: center;
     }
 
-     nav ul {
+    .vat {
+        width: 100%;
+    }
+    
+    nav ul {
         flex-direction: column;
         text-align: center;
         gap: 0.5rem;
+        border: 1px solid var(--text-light);
+        padding: 0.3rem 0rem;
     }
-     nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
+
 
      .header h1 {
         font-size: 1.2rem;
     }
-    .displays .input-display {
-        font-size: 1.5rem; /
-    }
 
-    .inputs {
-        width: 90%; 
-    }
-
-    .inputs input {
-        width: 100%; /
-    }
-
-    .footer {
-        font-size: 1rem; 
-    }
 }
 
-@media screen and (max-width: 480px) {
-    /* Adjust layout for very small screens */
-    .header {
-        padding: 0.8rem;
-    }
 
-    .header h1 {
-        font-size: 1.2rem; /* Adjust font size further */
-    }
-
-    .inputs {
-        width: 100%;
-        padding: 0.5rem;
-        margin-top: 1.7rem; /* Reduce padding on mobile */
-    }
-
-    .inputs input {
-        width: 100%;
-        font-size: 1.8rem; /* Adjust font size for small screens */
-    }
-
-    .back-button {
-        font-size: 1rem; /* Adjust back button font size */
-        padding: 0.5rem 1rem; /* Adjust padding */
-    }
-}
-}
